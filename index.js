@@ -9,6 +9,7 @@ const png2 = "https://cdn.discordapp.com/attachments/1464785403503448222/1473452
 
 const client1 = new Discord.Client({ readyStatus: false, checkUpdate: false });
 const client2 = new Discord.Client({ readyStatus: false, checkUpdate: false });
+const client3 = new Discord.Client({ readyStatus: false, checkUpdate: false });
 
 function setupRichPresence(client) {
   const d = new Discord.RichPresence(client)
@@ -35,5 +36,12 @@ client2.on("ready", async () => {
   setupRichPresence(client2);
 });
 
+client3.on("ready", async () => {
+  console.log(`${client3.user.username} is online!`);
+  setupRichPresence(client3);
+});
+
 client1.login(process.env.TOKEN);
 client2.login(process.env.TOKEN2);
+client3.login(process.env.TOKEN3);
+
